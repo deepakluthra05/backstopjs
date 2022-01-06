@@ -1,0 +1,73 @@
+{
+  "id": "Ontario.ca",
+  "viewports": [
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "home page",
+      "url": "http://ontario.local/",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "book a COVID-19 vaccine appointment",
+      "url": "http://ontario.local/",
+      "onReadyScript": "puppet/custom/bookCovid19Appoint.js",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Book Booster Shot",
+      "url": "http://ontario.local/",
+      "onReadyScript": "puppet/custom/bookBoosterShot.js",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Book Booster Shot - Invalid Postal code",
+      "url": "http://ontario.local/",
+      "onReadyScript": "puppet/custom/typeInvalidPostalCode.js",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Validate specific section --Alert Box-- Booster dose--",
+      "url": "http://ontario.local/",
+      "onReadyScript": "puppet/custom/bookCovid19Appoint.js",
+      "selectors": [ "body > div > main > div > div > div.ontario-alert.ontario-alert--warning" ],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Hide specific section --Dynamic data that we dont want to match--",
+      "url": "http://ontario.local/",
+      "onReadyScript": "puppet/custom/bookCovid19Appoint.js",
+      "hideselectors": [ "body > div > main > div > div > p:nth-child(6)" ],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

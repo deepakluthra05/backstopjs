@@ -1,0 +1,23 @@
+{
+  "name": "backstopjs-course-english",
+  "version": "1.0.0",
+  "description": "Project for the course of BackstopJS from the Talking About Testing online school.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlsf82/backstopjs-course-english.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlsf82/backstopjs-course-english/issues"
+  },
+  "homepage": "https://github.com/wlsf82/backstopjs-course-english#readme",
+  "dependencies": {
+    "backstopjs": "^6.0.4"
+  }
+}
